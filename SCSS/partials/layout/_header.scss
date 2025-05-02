@@ -1,0 +1,48 @@
+body {
+    nav {
+        background-color: map-get($map: $colors, $key: azul);
+        .container-fluid {
+            .navbar-brand {
+                padding-left: 20px;
+                color: map-get($map: $colors, $key: amarillo);
+            }
+            .navbar-toggler {
+                background-color: white;
+            }
+            .offcanvas {
+                .offcanvas-body {
+                    .navbar-nav {
+                        .nav-item {
+                            .nav-link {
+                                color: map-get($map: $colors, $key: amarillo);
+                            }
+                        }
+                        @media screen and (max-width: 991px) {
+                            .nav-item {
+                                .nav-link {
+                                    color: black;
+                                }
+                            }
+
+                            .separator {
+                                display: none;
+                            }
+                        }
+                        .language-container {
+                            padding-left: 40px;
+                            display: inline-flex;
+
+                            @media screen and (max-width: 991px) {
+                                display: block;
+                                padding: 0;
+                                .separator {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
