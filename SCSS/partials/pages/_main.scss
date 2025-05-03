@@ -138,57 +138,66 @@
 }
 
 // Trabajamos Con SCSS
-
-.trabajamos{
-  height: 75px;
-  background-color: map-get($map: $colors, $key: azul);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .text-trabajamos{
-    
-    p{
-      color: map-get($map: $colors, $key: amarillo);
-      font-size: clamp(22px, 1.5vw, 45px);
-      font-weight: 750;
-      margin: 0;
-    }
-  }
-}
-
-@keyframes scroll {
-  0%{
-    -webkit-animation:translateX(0);
-    transform: translateX(0);
-  }
-  100%{
-    -webkit-animation:translateX(calc(-200px * 7));
-    transform: translateX(calc(-200px * 7));
-  }
-}
-
-.slider {
-  width: 99vw;
-  height: auto;
-  margin: auto;
-  overflow: hidden;
-  padding-top: 15px;
-
-  .slide-track {
+.trabajamos-container{
+  .trabajamos{
+    height: 75px;
+    background-color: map-get($map: $colors, $key: azul);
     display: flex;
-    animation: scroll 40s linear infinite;
-    -webkit-animation: scroll 40s linear infinite;
-    width: calc(200px * 14);
-  }
-
-  .slide {
-    width: 200px;
-
-    img {
-      width: 100%;       // Hace que la imagen ocupe el 100% del ancho del contenedor
-      max-height: 100px; // Limita la altura máxima a 100px
-      height: auto;      // Mantiene la proporción de la imagen
+    align-items: center;
+    justify-content: center;
+    .text-trabajamos{
+      
+      p{
+        color: map-get($map: $colors, $key: amarillo);
+        font-size: clamp(22px, 1.5vw, 45px);
+        font-weight: 750;
+        margin: 0;
+      }
     }
   }
-  
+  .carousel-container{
+    width: 100vw; 
+    position: relative;
+    overflow: hidden; 
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+      .fade-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%);
+        pointer-events: none; 
+        z-index: 1; 
+      }
+    .carousel{
+      display: flex; 
+      animation: slide 3s linear infinite; 
+      img{
+        width: 10vw; 
+        height: auto; 
+        object-fit: cover;
+        @media (max-width: 768px) {
+          width: 30vw; 
+        }
+      }
+      @keyframes slide {
+        0% {
+          transform: translateX(0); 
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+        
+      }
+    }
+
+
+  }
 }
+
+// Si algo el espacio de abajo del slide es debido a que le puse un height al footer en el archivo de _footer.scss xd
+
+
