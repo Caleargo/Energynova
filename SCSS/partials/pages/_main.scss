@@ -58,13 +58,13 @@
 }
 
 // Línea separadora
+
 .divider {
   width: 100%;
   height: 2px;
   background-color: #000;
   position: relative;
   z-index: 3;
-  margin-top: 56px; // espacio bajo el nav
 }
 
 .container-grid {
@@ -134,6 +134,73 @@
       width: 100%;
     }
   }
+
+  //Envianos Tu Informacion SCSS
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-weight: 600;
+        font-size: clamp(14px, 1.2vw, 18px);
+      }
+
+      input,
+      textarea {
+        padding: 12px 16px;
+        font-size: clamp(14px, 1.1vw, 16px);
+        border: 2px solid map-get($map: $colors, $key: beish);
+        border-radius: 6px;
+        background-color: map-get($map: $colors, $key: blanco);
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: map-get($map: $colors, $key: azul);
+        }
+      }
+    }
+
+    button {
+      align-self: center;
+      padding: 14px 32px;
+      font-size: clamp(16px, 1.3vw, 20px);
+      font-weight: 700;
+      background-color: map-get($map: $colors, $key: azul);
+      color: map-get($map: $colors, $key: blanco);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+
+      &:hover {
+        background-color: darken(map-get($map: $colors, $key: azul), 10%);
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  @media (max-width: 660px) {
+    .contact-form {
+      gap: 20px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
 
 }
 
